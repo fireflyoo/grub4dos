@@ -17,10 +17,10 @@ title CDlinux
 	root (hd32)
 	kernel /CDlinux/bzImage CDL_LANG=zh_CN.UTF-8 CDL_DIR=/Disc CDL_IMG=CDlinux-0.9.7.1.iso  
 	initrd /CDlinux/initrd
-title TinyCore Origin
-	find --set-root /TinyCore-current.iso
-	map --mem /TinyCore-current.iso (hd32)
+title TinyCore
+	find --set-root --ignore-floppies --ignore-cd /Disc/TinyCore-current.iso
+	map --mem /Disc/TinyCore-current.iso (hd32)
 	map --hook
 	root (hd32)
-	kernel /boot/vmlinuz iso=sda7 tce waitusb=5 showapps
+	kernel /boot/vmlinuz iso=/dev/sdb1/Disc/TinyCore-current.iso tce waitusb=5 showapps
 	initrd /boot/core.gz
